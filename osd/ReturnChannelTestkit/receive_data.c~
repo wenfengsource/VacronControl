@@ -33,7 +33,8 @@ static int rcv_socket_init(void)
 
 	memset(&rcvAddr, 0, sizeof(rcvAddr));
 	rcvAddr.sin_family = AF_INET;
-	rcvAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	//rcvAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+	rcvAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
 	rcvAddr.sin_port = htons(5561);
 	if (bind(sock, (struct sockaddr *) &rcvAddr, sizeof(struct sockaddr)) < 0)
 	{
