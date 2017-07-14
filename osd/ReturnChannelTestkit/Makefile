@@ -19,6 +19,11 @@ returnchannel.so:
 sample:
 	#gcc -I$(LIBCORESRC) $(SRC)/sample.c -L./ -lreturnchannel -lstartservice -lpthread -lm -o sample
 	$(CC) $(SRC)/rs232.c $(LIBHOSTSRC)/ReturnChannel_Cmd_Host.c $(LIBHOSTSRC)/ReturnChannel_User_Host.c $(LIBCORESRC)/ReturnChannel_Cmd.c $(LIBCORESRC)/ReturnChannel_User.c $(LIBSHELLSRC)/ReturnChannel_Shell.c $(SRC)/sample.c $(SRC)/ReturnChannelApi.c -I$(LIBCORESRC) -L./ -lstartservice -lpthread -lm  -o sample
+
+
+vacron:
+	$(CC) $(SRC)/rs232.c $(LIBHOSTSRC)/ReturnChannel_Cmd_Host.c $(LIBHOSTSRC)/ReturnChannel_User_Host.c $(LIBCORESRC)/ReturnChannel_Cmd.c $(LIBCORESRC)/ReturnChannel_User.c $(LIBSHELLSRC)/ReturnChannel_Shell.c $(SRC)/vacron.c $(SRC)/ReturnChannelApi.c -I$(LIBCORESRC) ./libstartservice.so -lpthread -lm  -o vacron
+
 test:	
 	rm -f test
 #	gcc -I$(LIBCORESRC) $(SRC)/test.c -L./ -lreturnchannel -lstartservice -lpthread -lm -o test

@@ -56,7 +56,7 @@ static int snd_socket_init(void)
 
 	memset(&gSndAddr, 0, sizeof(gSndAddr));
 	gSndAddr.sin_family = AF_INET;
-	gSndAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
+	gSndAddr.sin_addr.s_addr = inet_addr("192.168.1.100");
 	gSndAddr.sin_port = htons(5561);
 
 	return sock;

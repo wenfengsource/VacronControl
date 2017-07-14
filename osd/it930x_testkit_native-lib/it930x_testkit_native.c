@@ -1243,7 +1243,7 @@ void Endeavour_Get_Board_ID(int handle) {
 	}	
 }
 
-int device_open()
+int device_open(int num)
 //int main(int argc, char **argv)
 {
 	Byte handle_number = 0;
@@ -1277,9 +1277,9 @@ int device_open()
 	
 	/* Device init & open handle */
 	handle_type = ENDEAVOUR;
-	handle = DTV_DeviceOpen(handle_type, handle_number);
+	handle = DTV_DeviceOpen(handle_type, num);
 	if(handle < 0){
-		printf("DTV_DeviceOpen(%d) fail\n", handle_number);
+		printf("DTV_DeviceOpen(%d) fail\n", num);
 		return -1;
 		//goto EXIT;
 	}

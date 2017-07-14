@@ -630,7 +630,7 @@ void Get_Packet(int handle, int target_times, int is_save){
 		// printf("return_length = %d\n",return_length );		
 			
 		 sleep(1);
-		
+		 printf(" packet get \n");
 		
 		retry = 0;		
  
@@ -1243,7 +1243,7 @@ void Endeavour_Get_Board_ID(int handle) {
 	}	
 }
 
-int device_open()
+int device_open(int num)
 //int main(int argc, char **argv)
 {
 	Byte handle_number = 0;
@@ -1255,6 +1255,7 @@ int device_open()
 	printf("DTVAPI Version  = 0x%x\n", DTVAPI_VERSION);
 	printf("============================================\n\n");
 	
+	handle_number = num;
 	/* Check handle number */
 	/*if(argv[1] == NULL){
 		printf("================== Open default device handle ====================\n");
@@ -1301,14 +1302,14 @@ int device_open()
 	{
 		return -3;
 	}
-	return 1;
+	return 0;
 }
 
 void DTV_Close()
 {
-        exit_flag =1 ;
-	DTV_StopCapture(1);
-	DTV_DeviceClose(1);
+        exit_flag =1;
+	//DTV_StopCapture(1);
+	DTV_DeviceClose(g_handle);
 }
 
 

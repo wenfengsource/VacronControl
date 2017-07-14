@@ -811,7 +811,7 @@ int main() {
 					break;
 
 				case CMD_GetTPSInformationInput:				// 0x0005 : GetTPSInformation
-					error = ubu(&shell, iSelectIndex, command, bIsBroadCast, bIsBlock, WaitTime, funReplyCallBack, funFailCallBack);
+					error = RC_Shell_Send(&shell, iSelectIndex, command, bIsBroadCast, bIsBlock, WaitTime, funReplyCallBack, funFailCallBack);
 					break;
 
 				case CMD_GetEncryptionConfigurationOptionsInput:// 0x0006 : GetEncryptionConfigurationOptions

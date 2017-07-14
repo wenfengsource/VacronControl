@@ -35,7 +35,7 @@ static int rcv_socket_init(void)
 	rcvAddr.sin_family = AF_INET;
 	//rcvAddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	rcvAddr.sin_addr.s_addr = inet_addr("127.0.0.1");
-	rcvAddr.sin_port = htons(5561);
+	rcvAddr.sin_port = htons(55611);
 	if (bind(sock, (struct sockaddr *) &rcvAddr, sizeof(struct sockaddr)) < 0)
 	{
 		printf("error bind failed");
@@ -48,7 +48,7 @@ static int rcv_socket_init(void)
 
 
 
-void receive_packet(unsigned char rx_buf[RCVBUFSIZE])
+void receive_packet(unsigned char *rx_buf)
 {
 	int rec_size=0;
 	int recvaddr_len=0;
@@ -62,11 +62,12 @@ void receive_packet(unsigned char rx_buf[RCVBUFSIZE])
 	printf("rec_size = %d\n", rec_size);
 	//}
 
-	printf("rx_buf data:");
+	printf("rx_buf data: %s \n", rx_buf);
 	for(i=0;i<rec_size;i++)
 	{
 	printf("%02x ",rx_buf[i]);
 	} 
+	//printf("rx_buf = ",rx_buf[i]);
 	printf("\n");
 }
 
