@@ -494,7 +494,7 @@ void main()
 			deviceInfoList[iSelectIndex].systemTime.UTCMinute =timenow->tm_min;
 			deviceInfoList[iSelectIndex].systemTime.UTCSecond = timenow->tm_sec;
 			deviceInfoList[iSelectIndex].systemTime.UTCYear = timenow->tm_year + 1900;
-			deviceInfoList[iSelectIndex].systemTime.UTCMonth = timenow->tm_mon;
+			deviceInfoList[iSelectIndex].systemTime.UTCMonth = timenow->tm_mon + 1;
 			deviceInfoList[iSelectIndex].systemTime.UTCDay = timenow->tm_mday;
 			deviceInfoList[iSelectIndex].systemTime.UTCMillisecond  = (((Word)rx_buf[9]) << 8) || (Word)rx_buf[10];
 			deviceInfoList[iSelectIndex].systemTime.extensionFlag = 1;// Must 1 for extension
@@ -555,7 +555,7 @@ void main()
 			deviceInfoList[iSelectIndex].videoOSDConfig.textEnable = 1;
 			//printf("\nEnter textPosition :  (EX : 0: Left-Top, 1: Left-Center, 2: Left-Down 3: Right-Top, 4: Right-Center, 5: Right-Down)");
 			//SCANF("%lu", &tempSetting);
-			deviceInfoList[iSelectIndex].videoOSDConfig.textPosition = 5;
+			deviceInfoList[iSelectIndex].videoOSDConfig.textPosition = 0;
 			//printf("\nEnter Text :  ");
 
 			printf("2. dateEnable		= %u\n",deviceInfoList[iSelectIndex].videoOSDConfig.dateEnable);
