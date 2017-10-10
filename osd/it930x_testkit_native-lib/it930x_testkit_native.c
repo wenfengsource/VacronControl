@@ -1293,6 +1293,9 @@ int device_open(int num)
 	//Endeavour_NULLPacket_Filter(handle, 1);
 	
 	//
+
+	Endeavour_RX_Reset(handle);
+
 	if(Endeavour_Lock_Channel(handle) == 0)
 	{
 		return -2;

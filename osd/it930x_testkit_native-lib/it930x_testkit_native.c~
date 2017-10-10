@@ -1255,7 +1255,6 @@ int device_open(int num)
 	printf("DTVAPI Version  = 0x%x\n", DTVAPI_VERSION);
 	printf("============================================\n\n");
 	
-	handle_number = num;
 	/* Check handle number */
 	/*if(argv[1] == NULL){
 		printf("================== Open default device handle ====================\n");
@@ -1278,9 +1277,9 @@ int device_open(int num)
 	
 	/* Device init & open handle */
 	handle_type = ENDEAVOUR;
-	handle = DTV_DeviceOpen(handle_type, handle_number);
+	handle = DTV_DeviceOpen(handle_type, num);
 	if(handle < 0){
-		printf("DTV_DeviceOpen(%d) fail\n", handle_number);
+		printf("DTV_DeviceOpen(%d) fail\n", num);
 		return -1;
 		//goto EXIT;
 	}
@@ -1294,6 +1293,9 @@ int device_open(int num)
 	//Endeavour_NULLPacket_Filter(handle, 1);
 	
 	//
+
+	Endeavour_RX_Reset(handle);
+
 	if(Endeavour_Lock_Channel(handle) == 0)
 	{
 		return -2;
