@@ -1310,6 +1310,7 @@ int device_open(int num)
 void DTV_Close()
 {
         exit_flag =1;
+	Endeavour_RX_Reset(g_handle);
 	//DTV_StopCapture(1);
 	DTV_DeviceClose(g_handle);
 }
