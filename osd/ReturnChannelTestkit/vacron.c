@@ -208,6 +208,77 @@ int device_num_parse(char *buff, int len)
 	return  atoi(num);
 }
 
+int time_position_parse(char *buff, int len)
+{
+	int i=0, j=0 ;
+	int cnt;
+	char num[2];
+	int flag =0 ;
+
+	memset(num,0,6);
+	for(i =0 ;i < len ; i++)
+	{
+		if(memcmp(&buff[i], "time_pos=", 9) == 0)
+		{
+			 cnt = i;
+			 flag = 1;
+			 i=i+9;
+			 printf("find time postion \n");
+		}
+
+		if((flag == 1) && (buff[i]== 0x3b))
+		{
+			printf(" buff[i] = %02x\n",  buff[i]);
+			break;
+		}
+
+		if(flag == 1)
+		{
+			num[j++] = buff[i];
+		}
+
+
+	}
+	printf("j = %d \n", j);
+	printf("time position = %s\n", num);
+	return  atoi(num);
+}
+
+int osd_position_parse(char *buff, int len)
+{
+	int i=0, j=0 ;
+	int cnt;
+	char num[2];
+	int flag =0 ;
+
+	memset(num,0,6);
+	for(i =0 ;i < len ; i++)
+	{
+		if(memcmp(&buff[i], "osd_pos=", 8) == 0)
+		{
+			 cnt = i;
+			 flag = 1;
+			 i=i+8;
+			 printf("find osd position \n");
+		}
+
+		if((flag == 1) && (buff[i]== 0x3b))
+		{
+			printf(" buff[i] = %02x\n",  buff[i]);
+			break;
+		}
+
+		if(flag == 1)
+		{
+			num[j++] = buff[i];
+		}
+
+
+	}
+	printf("j = %d \n", j);
+	printf("time position = %s\n", num);
+	return  atoi(num);
+}
 void translateUnicodeToUtf(char *src,char *des,int size) /*src is source address ，res is destination address*/
 {
 	int i,j;
@@ -519,7 +590,7 @@ void main()
 			deviceInfoList[iSelectIndex].videoOSDConfig.dateEnable = 1;
 			//printf("\nEnter datePosition :  (EX : 0: Left-Top, 1: Left-Center, 2: Left-Down 3: Right-Top, 4: Right-Center, 5: Right-Down)");
 
-			deviceInfoList[iSelectIndex].videoOSDConfig.datePosition = 0;
+			deviceInfoList[iSelectIndex].videoOSDConfig.datePosition = time_position_parse(rx_buf,rec_size);
 			//printf("\nEnter dateFormat :  (EX : 0: D/M/Y, 1: M/D/Y, 2: Y/M/D)");
 
 			deviceInfoList[iSelectIndex].videoOSDConfig.dateFormat =2;
@@ -555,7 +626,7 @@ void main()
 			deviceInfoList[iSelectIndex].videoOSDConfig.textEnable = 1;
 			//printf("\nEnter textPosition :  (EX : 0: Left-Top, 1: Left-Center, 2: Left-Down 3: Right-Top, 4: Right-Center, 5: Right-Down)");
 			//SCANF("%lu", &tempSetting);
-			deviceInfoList[iSelectIndex].videoOSDConfig.textPosition = 0;
+			deviceInfoList[iSelectIndex].videoOSDConfig.textPosition = osd_position_parse(rx_buf,rec_size);
 			//printf("\nEnter Text :  ");
 
 			printf("2. dateEnable		= %u\n",deviceInfoList[iSelectIndex].videoOSDConfig.dateEnable);
