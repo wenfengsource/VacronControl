@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/VacronControl/osd/it930x_driver_native/tty_Virtual.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/ubuntu/VacronControl/osd/it930x_driver_native/tty_Virtual.ko /home/ubuntu/VacronControl/osd/it930x_driver_native/tty_Virtual.o /home/ubuntu/VacronControl/osd/it930x_driver_native/tty_Virtual.mod.o

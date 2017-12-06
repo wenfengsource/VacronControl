@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/VacronControl/osd/it930x_driver_native/usb-it930x.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/ubuntu/VacronControl/osd/it930x_driver_native/usb-it930x.ko /home/ubuntu/VacronControl/osd/it930x_driver_native/usb-it930x.o /home/ubuntu/VacronControl/osd/it930x_driver_native/usb-it930x.mod.o

@@ -1,0 +1,32 @@
+---- open Matches (27 in 12 files) ----
+Dibdatabus.c (api\dib9090):		/* close the gate if the message is not for a gated (virtual) bus but there is currently a gate open */
+Dibdatabus.c (api\dib9090):			/* there is a gate keeper currently open */
+Dibdatabus.c (api\dib9090):				/* open the new gate */
+Dibdatabus.c (api\dib9090):			/* there is no gate open at the moment */
+Dibdatabus.h (api\dib9090):	 * This field keeps the client which is currently having the gate open (to close it later). Used internally for gate-mechanism.
+Dibdatabus.h (api\dib9090): * After going to deep-sleep it is useful to reset the software representation of a DataBus, because a possibly open gate is not open any longer.
+Dibdatabus.h (api\dib9090): * mutex. Don't use this function except for a message to open and
+Dibplatform_linux.c (api\dib9090):    fd = open(filename, O_RDONLY);
+Dibplatform_linux.c (api\dib9090):        dbgp("could not open '%s'\n", filename);
+Dibplatform_windows_kernel.c (api\dib9090):	  dbgp("could not open '%s'\n", fileName);
+Dibplatform_windows_user.c (api\dib9090):        dbgp("could not open '%s'\n", filename);
+Dibx000_i2c_common.c (api\dib9090):        /* select the right port when we open up */
+Dibx000_i2c_common.c (api\dib9090):        val = (((uint8_t) client->device_id)>> 1) << 8; // bit 7 = use master or not, if 0, the gate is open
+Dibx000_i2c_common.c (api\dib9090):    mst->gate_ctrl_client = client; /* the client to control the gate open and close - by default it is the same */
+It930x-core.c (src):	.open = Rx_fops_open,
+It930x-core.c (src):			dev->chip[chip_index]->chip_open_count = 0;	/* Chip open count */
+It930x-core.c (src):		IT9300_setIgnoreFail(g_it9300, br_idx, true);	//open error packet
+It930x-core.c (src):		deb_data("DISCONNECT - Ap is open!!");
+It930x-core.h (src):	int handle_startcapture[4];		//chip open flag
+It930x-core.h (src):	bool if_chip_start_capture;		//chip open flag	
+It930x-core.h (src):	bool if_file_start_capture; //ap open flag
+It930x-drv.c (src):		deb_data("\t Error: open af35irtbl.bin fail\n");
+Mt_fe_i2c.c (api):	/*open I2C repeater*/
+Mt_fe_i2c.c (api):	/*open I2C repeater*/
+Mt_fe_i2c.c (api):	/*open I2C repeater*/
+Standard.c (api):	/** Set 0xD827 to 0 as open drain for tuner i2c */
+Tty0tty.c (virtual_com):	.open = tty0tty_open,
+---- open Search Errors Encountered (2) ----
+The following 2 files could not be processed:
+E:\working\it930x_driver_native\driver.IAB : File could not be opened.
+E:\working\it930x_driver_native\driver.IMB : File could not be opened.
