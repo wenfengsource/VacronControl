@@ -344,9 +344,16 @@ char osd_utf8[200];
 			 printf("find osd \n");
 		}
 
-		if(flag == 1 && buff[i]== 0x3b)
+		if(flag == 1 && buff[i]== 0x3b && buff[i+1]== 0x3b)
 		{
-			break;
+			if(i+1 >= len)
+			{
+				break;
+			}
+			else if(i+1 < len && buff[i+2] !=0x3b)
+			{
+				break;
+			}
 		}
 
 		if(flag == 1)
